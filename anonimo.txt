@@ -1,0 +1,24 @@
+DECLARE
+  v_codigo_alumno NUMBER;
+  v_nombres VARCHAR2(50);
+  v_apellidos VARCHAR2(50);
+  v_correo VARCHAR2(100);
+  v_especialidad VARCHAR2(50);
+  v_sexo VARCHAR2(1);
+BEGIN
+  FOR cur_alumno IN (SELECT * FROM ALUMNOS) LOOP
+    v_codigo_alumno := cur_alumno.CODIGO_ALUMNO;
+    v_nombres := cur_alumno.NOMBRES;
+    v_apellidos := cur_alumno.APELLIDOS;
+    v_correo := cur_alumno.CORREO;
+    v_especialidad := cur_alumno.ESPECIALIDAD;
+    v_sexo := cur_alumno.SEXO;
+    DBMS_OUTPUT.PUT_LINE('Código Alumno: ' || v_codigo_alumno);
+    DBMS_OUTPUT.PUT_LINE('Nombres: ' || v_nombres);
+    DBMS_OUTPUT.PUT_LINE('Apellidos: ' || v_apellidos);
+    DBMS_OUTPUT.PUT_LINE('Correo: ' || v_correo);
+    DBMS_OUTPUT.PUT_LINE('Especialidad: ' || v_especialidad);
+    DBMS_OUTPUT.PUT_LINE('Sexo: ' || v_sexo);
+    DBMS_OUTPUT.PUT_LINE('------------------------');
+  END LOOP;
+END;
